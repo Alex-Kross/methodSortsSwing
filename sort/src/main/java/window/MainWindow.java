@@ -288,6 +288,7 @@ public class MainWindow<optionPane_f> extends JFrame {
                     if (sizeArray <= 0) {
                         throw new IllegalArgumentException("Size array can be only positive!");
                     }
+
                     // create array and fill random number
                     array = new Array(sizeArray);
                     ArrayCreator arrayCreator = new ArrayCreator(maxRange);
@@ -299,8 +300,8 @@ public class MainWindow<optionPane_f> extends JFrame {
 
                 }catch (NumberFormatException exception){
                     JOptionPane.showMessageDialog(MainWindow.this,
-                            "Input integer number or you exceed access number length! ");
-                    Printer.printInConsole("Input integer number or you exceed access number length! ");
+                            "Input integer number! ");
+                    Printer.printInConsole("Input integer number! ");
                 }
                 catch (IllegalArgumentException exception){
                     JOptionPane.showMessageDialog(MainWindow.this, exception.getMessage());
