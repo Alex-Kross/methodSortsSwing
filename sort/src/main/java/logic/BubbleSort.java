@@ -1,7 +1,6 @@
 package logic;
 
 import util.Converter;
-import view.Printer;
 
 /**
  * Class BubbleSort sort integer array method sorting Bubble sort
@@ -14,18 +13,9 @@ public class BubbleSort{
     private double timeSort;    // variable store time execute sorting
     private long startTime;     // variable store start execute sorting
     private long endTime;       // variable store end execute sorting
-    private Printer printer;        // variable for print arrive during execution sorting
+    private String stepByStepSorting = "";
 
     public BubbleSort(){}
-
-    /**
-     * Constructors for instantiation Print
-     *
-     * @param printer object for print array
-     * */
-    public BubbleSort(Printer printer){
-        this.printer = printer;
-    }
 
     /**
      * Sort arrive method Bubble sort and fix start, end execute sorting
@@ -44,7 +34,7 @@ public class BubbleSort{
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                     flag = false;
-                    printer.printInTextArea("\n" + Converter.fromArrayToString(array));
+                    stepByStepSorting += "\n" + Converter.fromArrayToString(array);
                 }
             }
             if (flag) {
@@ -53,7 +43,6 @@ public class BubbleSort{
         }
         endTime = System.nanoTime();
         return array;
-
     }
 
     /**
@@ -73,5 +62,9 @@ public class BubbleSort{
     public double getTimeSort() {
         calculationSpeedSorting();
         return timeSort;
+    }
+
+    public String getStepByStepSorting() {
+        return stepByStepSorting;
     }
 }

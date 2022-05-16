@@ -1,7 +1,6 @@
 package logic;
 
 import util.Converter;
-import view.Printer;
 
 /**
  * Class SelectSort sort integer array method sorting Select sort
@@ -14,16 +13,9 @@ public class SelectSort{
     private double timeSort;    // variable store time execute sorting
     private long startTime;     // variable store start execute sorting
     private long endTime;       // variable store end execute sorting
-    private Printer printer;        // variable for print arrive during execution sorting
+    private String stepByStepSorting = "";
 
-    /**
-     * Constructors for instantiation Print
-     *
-     * @param printer object for print array
-     * */
-    public SelectSort(Printer printer){
-        this.printer = printer;
-    }
+    public SelectSort(){}
 
     /**
      * Sort arrive method Select sort and fix start, end execute sorting
@@ -46,7 +38,7 @@ public class SelectSort{
             int temp = array[i];
             array[i] = array[indexMinEl];
             array[indexMinEl] = temp;
-            printer.printInTextArea("\n" + Converter.fromArrayToString(array));
+            stepByStepSorting += "\n" + Converter.fromArrayToString(array);
         }
         endTime = System.nanoTime();
 
@@ -70,5 +62,9 @@ public class SelectSort{
     public double getTimeSort() {
         calculationSpeedSorting();
         return timeSort;
+    }
+
+    public String getStepByStepSorting() {
+        return stepByStepSorting;
     }
 }

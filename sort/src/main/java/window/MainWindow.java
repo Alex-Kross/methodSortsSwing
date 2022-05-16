@@ -287,13 +287,9 @@ public class MainWindow<optionPane_f> extends JFrame {
             }
             else if (e.getSource() == jbtSort) {
                 try {
-                    // linking class Print with certain area text
-                    Printer printerBubbleSort = new Printer(jTextAreaBubbleSort);
-                    Printer printerSelectSort = new Printer(jTextAreaSelectSort);
-
                     // create objects sort
-                    BubbleSort bubbleSort = new BubbleSort(printerBubbleSort);
-                    SelectSort selectSort = new SelectSort(printerSelectSort);
+                    BubbleSort bubbleSort = new BubbleSort();
+                    SelectSort selectSort = new SelectSort();
 
                     // record arrive in areas text
                     jTextAreaBubbleSort.setText(array.toString());
@@ -302,6 +298,14 @@ public class MainWindow<optionPane_f> extends JFrame {
                     // sort arrive through two arrive
                     bubbleSortedArray = new SortedArray(bubbleSort.sortArray(array.getArray()));
                     selectSortedArray = new SortedArray(selectSort.sortArray(array.getArray()));
+
+                    // linking class Print with certain area text
+                    Printer printerBubbleSort = new Printer(jTextAreaBubbleSort);
+                    Printer printerSelectSort = new Printer(jTextAreaSelectSort);
+
+                    //print sorts step by step
+                    printerBubbleSort.printInTextArea(bubbleSort.getStepByStepSorting());
+                    printerSelectSort.printInTextArea(selectSort.getStepByStepSorting());
 
                     // set speed sorting on labels
                     jlbSpeedSorting1.setText(speedBubbleSort + bubbleSort.getTimeSort());
