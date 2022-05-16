@@ -1,6 +1,6 @@
 package view;
 
-import javax.swing.*;
+import javax.swing.JTextArea;
 
 /**
  * Class Print for output string in different elements program
@@ -13,6 +13,8 @@ import javax.swing.*;
 public class Printer {
     private JTextArea jTextArea;    // text area where will be output string
 
+    public Printer(){
+    }
     /**
      * Constructors for instantiation JTextArea
      *

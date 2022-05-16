@@ -1,4 +1,5 @@
 package logic;
+
 import util.Converter;
 import view.Printer;
 
@@ -14,6 +15,8 @@ public class BubbleSort{
     private long startTime;     // variable store start execute sorting
     private long endTime;       // variable store end execute sorting
     private Printer printer;        // variable for print arrive during execution sorting
+
+    public BubbleSort(){}
 
     /**
      * Constructors for instantiation Print
