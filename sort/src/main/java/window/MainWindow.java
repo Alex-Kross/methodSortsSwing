@@ -255,6 +255,26 @@ public class MainWindow<optionPane_f> extends JFrame {
                         throw new IllegalArgumentException("Input max value array ");
                     }
 
+                    // check length number for set size array
+                    if (stringSizeArray.charAt(0) == '-') {
+                        if (stringSizeArray.length() > 7) {
+                            throw new IllegalArgumentException("Size array can be only length 1-6");
+                        }
+                    }
+                    else if (stringSizeArray.length() > 6) {
+                        throw new IllegalArgumentException("Size array can be only length 1-6");
+                    }
+
+                    // check length number for set max range
+                    if (stringMaxRange.charAt(0) == '-') {
+                        if (stringMaxRange.length() > 11) {
+                            throw new IllegalArgumentException("Max range can be only length 1-10");
+                        }
+                    }
+                    else if (stringMaxRange.length() > 10) {
+                        throw new IllegalArgumentException("Max range can be only length 1-10");
+                    }
+
                     // set parameters array
                     int maxRange = Integer.parseInt(stringMaxRange);
                     int sizeArray = Integer.parseInt(stringSizeArray);
@@ -278,9 +298,12 @@ public class MainWindow<optionPane_f> extends JFrame {
                     jTextAreaSelectSort.setText(array.toString());
 
                 }catch (NumberFormatException exception){
-                    Printer.printInConsole("Input integer number!");
+                    JOptionPane.showMessageDialog(MainWindow.this,
+                            "Input integer number or you exceed access number length! ");
+                    Printer.printInConsole("Input integer number or you exceed access number length! ");
                 }
                 catch (IllegalArgumentException exception){
+                    JOptionPane.showMessageDialog(MainWindow.this, exception.getMessage());
                     Printer.printInConsole(exception.getMessage());
                 }
 
@@ -311,6 +334,7 @@ public class MainWindow<optionPane_f> extends JFrame {
                     jlbSpeedSorting1.setText(speedBubbleSort + bubbleSort.getTimeSort());
                     jlbSpeedSorting2.setText(speedSelectSort + selectSort.getTimeSort());
                 } catch (NullPointerException exception) {
+                    JOptionPane.showMessageDialog(MainWindow.this, exception.getMessage());
                     Printer.printInConsole("Create arrive!");
                 }
 
